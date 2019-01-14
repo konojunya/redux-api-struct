@@ -1,0 +1,3 @@
+.circleci/* linguist-vendored
+dist/* linguist-vendored
+logo/* linguist-vendored
