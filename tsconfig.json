@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": false,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "module": "commonjs",
+    "target": "ES2015",
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": "./src"
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
