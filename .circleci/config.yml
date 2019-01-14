@@ -1,0 +1,100 @@
+version: 2.1
+
+references:
+  workspace_root: &workspace_root ~/redux-api-struct
+  yarn_cache_config: &yarn_cache_config
+    key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "package.json" }}
+    paths:
+      - .
+
+  yarn_restore_cache: &yarn_restore_cache
+    restore_cache:
+      <<: *yarn_cache_config
+      name: Restore yarn cache
+
+  yarn_save_cache: &yarn_save_cache
+    save_cache:
+      <<: *yarn_cache_config
+      name: Save yarn cache
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  system_info: &system_info
+    run:
+      name: System infomation
+      command: |
+        echo "Node $(node -v)"
+        echo "Yarn v$(yarn --version)"
+
+  deps: &deps
+    run:
+      name: Install dependencies
+      command: yarn --pure-lockfile
+
+  docker_image: &docker_image
+    docker:
+      - image: node:10.15.0
+        environment:
+          TZ: "/usr/share/zoneinfo/Asia/Tokyo"
+          REVIEWDOG_VERSION: "0.9.11"
+
+executors:
+  node_stage:
+    <<: *docker_image
+    working_directory: *workspace_root
+
+jobs:
+  setup:
+    executor: node_stage
+    steps:
+      - checkout
+      - *system_info
+      - *deps
+      - *yarn_save_cache
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - node_modules
+
+  run_lint:
+    executor: node_stage
+    steps:
+      - checkout
+      - *attach_workspace
+      - run:
+          name: yarn lint
+          command: yarn lint
+
+  run_test:
+    executor: node_stage
+    steps:
+      - checkout
+      - *attach_workspace
+      - run:
+          name: Unit test
+          command: yarn test
+
+  run_build:
+    executor: node_stage
+    steps:
+      - checkout
+      - *attach_workspace
+      - run:
+          name: build
+          command: yarn build
+
+workflows:
+  build_and_deploy:
+    jobs:
+      - setup
+      - run_lint:
+          requires:
+            - setup
+      - run_test:
+          requires:
+            - setup
+      - run_build:
+          requires:
+            - setup

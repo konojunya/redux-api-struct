@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json -t verbose 'src/**/*.ts'",
     "test": "jest",
     "test:coverage": "yarn test --coverage"
   },
