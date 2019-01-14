@@ -14,6 +14,12 @@ WIP
 
 WIP
 
+# Logo
+
+created by [kinokoruumu](https://twitter.com/kinokoruumu41)
+
+you can see [logo generator](https://github.com/konojunya/redux-api-struct/blob/master/logo)
+
 # License
 
 MIT
