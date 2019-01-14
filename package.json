@@ -4,8 +4,13 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "redux-api-struct",
+    "redux",
+    "typescript"
+  ],
   "repository": "ssh://git@github.com/konojunya/redux-api-struct.git",
-  "author": "konojunya <junya03dance@gmail.com>",
+  "author": "konojunya <junya.developer@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
