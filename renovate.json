@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base", "group:jestMonorepo"],
+  "timezone": "Asia/Tokyo",
+  "labels": ["A-dependencies :package:"],
+  "unpublishSafe": true,
+  "schedule": [
+    "after 9pm every weekday",
+    "before 8am every weekday",
+    "every weekend"
+  ],
+  "semanticCommits": true,
+  "semanticCommitType": "update",
+  "semanticCommitScope": null
+}

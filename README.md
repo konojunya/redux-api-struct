@@ -1,12 +1,16 @@
 ![ReduxAPIStruct Logo](https://raw.githubusercontent.com/konojunya/redux-api-struct/master/logo/logo.png)
 
+[![npm](https://img.shields.io/npm/v/redux-api-struct.svg?style=flat)](https://www.npmjs.com/package/redux-api-struct)
+[![CircleCI](https://circleci.com/gh/konojunya/redux-api-struct/tree/master.svg?style=shield)](https://circleci.com/gh/konojunya/redux-api-struct/tree/master)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 redux-api-struct makes it easy to manage the state of the API for redux's state.
 
 # Description
 
-redux-api-struct provides types and utils for state to reducex state itself.
+redux-api-struct provides types and utils for store.
 
-By managing the state state with `initial` `fetching`, `success` and `failure`, it is possible to easily switch the UI on the component side,making the error report easier to write due to the structure of the error, or letting the error sentence depend on the action You can write.
+By managing the state with `initial` `fetching`, `success` and `failure`, it is possible to easily switch the UI on the component side, making the error report easier to write due to the structure of the error, or letting the error sentence depend on the action.
 
 # Installation
 

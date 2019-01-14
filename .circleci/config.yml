@@ -35,7 +35,7 @@ references:
 
   docker_image: &docker_image
     docker:
-      - image: node:10.15.0
+      - image: node:10.15.1
         environment:
           TZ: "/usr/share/zoneinfo/Asia/Tokyo"
           REVIEWDOG_VERSION: "0.9.11"
@@ -84,6 +84,20 @@ jobs:
       - run:
           name: build
           command: yarn build
+      - persist_to_workspace:
+          root: *workspace_root
+          paths: .
+  
+  deploy:
+    executor: node_stage
+    steps:
+      - *attach_workspace
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/redux-api-struct/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 workflows:
   build_and_deploy:
@@ -98,3 +112,14 @@ workflows:
       - run_build:
           requires:
             - setup
+      - deploy:
+          requires:
+            - setup
+            - run_lint
+            - run_test
+            - run_build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
