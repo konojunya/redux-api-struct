@@ -26,7 +26,7 @@ export const createDefaultStruct = <T>(
 });
 
 export const errorDefault = (): ReduxAPIError => ({
-  statusCode: 0,
+  statusCode: 999,
   message: "",
   error: Error()
 });

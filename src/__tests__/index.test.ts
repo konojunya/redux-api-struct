@@ -20,7 +20,7 @@ describe("createDefaultStruct testing", () => {
 describe("errorDefault testing", () => {
   test("errorDefault", () => {
     expect(errorDefault()).toEqual({
-      statusCode: 0,
+      statusCode: 999,
       message: "",
       error: Error()
     });
