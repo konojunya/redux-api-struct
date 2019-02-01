@@ -1,8 +1,11 @@
 pull_request_rules:
   - name: automatic merge on CI success and review
     conditions:
-      - 'label=will-merge :v:'
-      - 'status-success=ci/circleci'
+      - 'label!=do-not-merge :x:'
+      - 'status-success=ci/circleci: setup'
+      - 'status-success=ci/circleci: run_build'
+      - 'status-success=ci/circleci: run_lint'
+      - 'status-success=ci/circleci: run_test'
     actions:
       delete_head_branch: {}
       merge:
