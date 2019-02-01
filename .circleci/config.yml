@@ -35,7 +35,7 @@ references:
 
   docker_image: &docker_image
     docker:
-      - image: node:10.15.0
+      - image: node:10.15.1
         environment:
           TZ: "/usr/share/zoneinfo/Asia/Tokyo"
           REVIEWDOG_VERSION: "0.9.11"
