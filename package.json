@@ -19,12 +19,13 @@
     "test:coverage": "yarn test --coverage"
   },
   "devDependencies": {
-    "@types/jest": "23.3.12",
+    "@types/jest": "23.3.13",
+    "prettier": "1.16.3",
     "@types/node": "10.12.19",
-    "jest": "23.6.0",
-    "prettier": "1.15.3",
+    "jest": "24.0.0",
+    "prettier": "1.16.3",
     "ts-jest": "23.10.5",
-    "ts-node": "7.0.1",
+    "ts-node": "8.0.2",
     "tslint": "5.12.1",
     "tslint-config-prettier": "1.17.0",
     "tslint-plugin-prettier": "2.0.1",
