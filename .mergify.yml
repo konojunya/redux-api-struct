@@ -2,7 +2,6 @@ pull_request_rules:
   - name: automatic merge on CI success and review
     conditions:
       - 'label!=do-not-merge :x:'
-      - '#approved-reviews-by=@konojunya'
       - 'status-success=ci/circleci: setup'
       - 'status-success=ci/circleci: run_build'
       - 'status-success=ci/circleci: run_lint'
