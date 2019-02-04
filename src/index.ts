@@ -11,12 +11,14 @@ export enum ReduxAPIState {
   FAILURE
 }
 
-// alias
-export const isInitial = ReduxAPIState.INITIAL;
-export const isFetching = ReduxAPIState.FETCHING;
-export const isLoading = ReduxAPIState.INITIAL || ReduxAPIState.FETCHING;
-export const isSuccess = ReduxAPIState.SUCCESS;
-export const isFailure = ReduxAPIState.FAILURE;
+// functions
+export namespace ReduxAPIState {
+  export const isInitial = (state: ReduxAPIState) => state === ReduxAPIState.INITIAL;
+  export const isFetching = (state: ReduxAPIState) => state === ReduxAPIState.FETCHING;
+  export const isLoading = (state: ReduxAPIState) => state === ReduxAPIState.INITIAL || state === ReduxAPIState.FETCHING;
+  export const isSuccess = (state: ReduxAPIState) => state === ReduxAPIState.SUCCESS;
+  export const isFailure = (state: ReduxAPIState) => state === ReduxAPIState.FAILURE;
+}
 
 export interface ReduxAPIStruct<T> {
   status: ReduxAPIState;
