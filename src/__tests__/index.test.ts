@@ -1,4 +1,13 @@
-import { createDefaultStruct, errorDefault, ReduxAPIState } from "../";
+import {
+  createDefaultStruct,
+  errorDefault,
+  ReduxAPIState,
+  isInitial,
+  isFetching,
+  isLoading,
+  isSuccess,
+  isFailure
+} from "../";
 
 describe("createDefaultStruct testing", () => {
   test("not args createDefaultStruct", () => {
@@ -24,5 +33,23 @@ describe("errorDefault testing", () => {
       message: "",
       error: Error()
     });
+  });
+});
+
+describe("alias", () => {
+  test("alias initial", () => {
+    expect(isInitial).toEqual(ReduxAPIState.INITIAL);
+  });
+  test("alias fetching", () => {
+    expect(isFetching).toEqual(ReduxAPIState.FETCHING);
+  });
+  test("alias loading", () => {
+    expect(isLoading).toEqual(ReduxAPIState.INITIAL || ReduxAPIState.FETCHING);
+  });
+  test("alias success", () => {
+    expect(isSuccess).toEqual(ReduxAPIState.SUCCESS);
+  });
+  test("alias failure", () => {
+    expect(isFailure).toEqual(ReduxAPIState.FAILURE);
   });
 });

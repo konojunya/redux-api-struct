@@ -11,6 +11,13 @@ export enum ReduxAPIState {
   FAILURE
 }
 
+// alias
+export const isInitial = ReduxAPIState.INITIAL;
+export const isFetching = ReduxAPIState.FETCHING;
+export const isLoading = ReduxAPIState.INITIAL || ReduxAPIState.FETCHING;
+export const isSuccess = ReduxAPIState.SUCCESS;
+export const isFailure = ReduxAPIState.FAILURE;
+
 export interface ReduxAPIStruct<T> {
   status: ReduxAPIState;
   data: T;
