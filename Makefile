@@ -5,6 +5,7 @@ release:
 	yarn lint
 
 publish:
+	git push --follow-tags
 	npm publish
 
 
