@@ -1,6 +1,6 @@
 export interface ReduxAPIError {
   statusCode: number;
-  error: Error;
+  error?: Error;
   message?: string;
 }
 
