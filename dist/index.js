@@ -7,13 +7,19 @@ var ReduxAPIState;
     ReduxAPIState[ReduxAPIState["SUCCESS"] = 2] = "SUCCESS";
     ReduxAPIState[ReduxAPIState["FAILURE"] = 3] = "FAILURE";
 })(ReduxAPIState = exports.ReduxAPIState || (exports.ReduxAPIState = {}));
+// alias
+exports.isInitial = ReduxAPIState.INITIAL;
+exports.isFetching = ReduxAPIState.FETCHING;
+exports.isLoading = ReduxAPIState.INITIAL || ReduxAPIState.FETCHING;
+exports.isSuccess = ReduxAPIState.SUCCESS;
+exports.isFailure = ReduxAPIState.FAILURE;
 exports.createDefaultStruct = (defaultValue) => ({
     status: ReduxAPIState.INITIAL,
     data: defaultValue,
     error: exports.errorDefault()
 });
 exports.errorDefault = () => ({
-    statusCode: 0,
+    statusCode: 999,
     message: "",
     error: Error()
 });
