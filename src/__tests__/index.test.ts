@@ -1,13 +1,4 @@
-import {
-  createDefaultStruct,
-  errorDefault,
-  ReduxAPIState,
-  isInitial,
-  isFetching,
-  isLoading,
-  isSuccess,
-  isFailure
-} from "../";
+import { createDefaultStruct, errorDefault, ReduxAPIState } from "../";
 
 describe("createDefaultStruct testing", () => {
   test("not args createDefaultStruct", () => {
@@ -36,20 +27,21 @@ describe("errorDefault testing", () => {
   });
 });
 
-describe("alias", () => {
-  test("alias initial", () => {
-    expect(isInitial).toEqual(ReduxAPIState.INITIAL);
+describe("alias function", () => {
+  test("function isInitial", () => {
+    expect(ReduxAPIState.isInitial(ReduxAPIState.INITIAL)).toBeTruthy();
   });
-  test("alias fetching", () => {
-    expect(isFetching).toEqual(ReduxAPIState.FETCHING);
+  test("function isFetching", () => {
+    expect(ReduxAPIState.isFetching(ReduxAPIState.FETCHING)).toBeTruthy();
   });
-  test("alias loading", () => {
-    expect(isLoading).toEqual(ReduxAPIState.INITIAL || ReduxAPIState.FETCHING);
+  test("function isLoading", () => {
+    expect(ReduxAPIState.isLoading(ReduxAPIState.INITIAL)).toBeTruthy();
+    expect(ReduxAPIState.isLoading(ReduxAPIState.FETCHING)).toBeTruthy();
   });
-  test("alias success", () => {
-    expect(isSuccess).toEqual(ReduxAPIState.SUCCESS);
+  test("function isSuccess", () => {
+    expect(ReduxAPIState.isSuccess(ReduxAPIState.SUCCESS)).toBeTruthy();
   });
-  test("alias failure", () => {
-    expect(isFailure).toEqual(ReduxAPIState.FAILURE);
+  test("function isFailure", () => {
+    expect(ReduxAPIState.isFailure(ReduxAPIState.FAILURE)).toBeTruthy();
   });
 });
