@@ -13,11 +13,16 @@ export enum ReduxAPIState {
 
 // functions
 export namespace ReduxAPIState {
-  export const isInitial = (state: ReduxAPIState) => state === ReduxAPIState.INITIAL;
-  export const isFetching = (state: ReduxAPIState) => state === ReduxAPIState.FETCHING;
-  export const isLoading = (state: ReduxAPIState) => state === ReduxAPIState.INITIAL || state === ReduxAPIState.FETCHING;
-  export const isSuccess = (state: ReduxAPIState) => state === ReduxAPIState.SUCCESS;
-  export const isFailure = (state: ReduxAPIState) => state === ReduxAPIState.FAILURE;
+  export const isInitial = (state: ReduxAPIState) =>
+    state === ReduxAPIState.INITIAL;
+  export const isFetching = (state: ReduxAPIState) =>
+    state === ReduxAPIState.FETCHING;
+  export const isLoading = (state: ReduxAPIState) =>
+    state === ReduxAPIState.INITIAL || state === ReduxAPIState.FETCHING;
+  export const isSuccess = (state: ReduxAPIState) =>
+    state === ReduxAPIState.SUCCESS;
+  export const isFailure = (state: ReduxAPIState) =>
+    state === ReduxAPIState.FAILURE;
 }
 
 export interface ReduxAPIStruct<T> {

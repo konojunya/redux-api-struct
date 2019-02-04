@@ -1,8 +1,4 @@
-import {
-  createDefaultStruct,
-  errorDefault,
-  ReduxAPIState
-} from "../";
+import { createDefaultStruct, errorDefault, ReduxAPIState } from "../";
 
 describe("createDefaultStruct testing", () => {
   test("not args createDefaultStruct", () => {
@@ -33,7 +29,7 @@ describe("errorDefault testing", () => {
 
 describe("alias function", () => {
   test("function isInitial", () => {
-    expect(ReduxAPIState.isInitial(ReduxAPIState.INITIAL)).toBeTruthy()
+    expect(ReduxAPIState.isInitial(ReduxAPIState.INITIAL)).toBeTruthy();
   });
   test("function isFetching", () => {
     expect(ReduxAPIState.isFetching(ReduxAPIState.FETCHING)).toBeTruthy();
