@@ -7,12 +7,14 @@ var ReduxAPIState;
     ReduxAPIState[ReduxAPIState["SUCCESS"] = 2] = "SUCCESS";
     ReduxAPIState[ReduxAPIState["FAILURE"] = 3] = "FAILURE";
 })(ReduxAPIState = exports.ReduxAPIState || (exports.ReduxAPIState = {}));
-// alias
-exports.isInitial = ReduxAPIState.INITIAL;
-exports.isFetching = ReduxAPIState.FETCHING;
-exports.isLoading = ReduxAPIState.INITIAL || ReduxAPIState.FETCHING;
-exports.isSuccess = ReduxAPIState.SUCCESS;
-exports.isFailure = ReduxAPIState.FAILURE;
+// functions
+(function (ReduxAPIState) {
+    ReduxAPIState.isInitial = (state) => state === ReduxAPIState.INITIAL;
+    ReduxAPIState.isFetching = (state) => state === ReduxAPIState.FETCHING;
+    ReduxAPIState.isLoading = (state) => state === ReduxAPIState.INITIAL || state === ReduxAPIState.FETCHING;
+    ReduxAPIState.isSuccess = (state) => state === ReduxAPIState.SUCCESS;
+    ReduxAPIState.isFailure = (state) => state === ReduxAPIState.FAILURE;
+})(ReduxAPIState = exports.ReduxAPIState || (exports.ReduxAPIState = {}));
 exports.createDefaultStruct = (defaultValue) => ({
     status: ReduxAPIState.INITIAL,
     data: defaultValue,

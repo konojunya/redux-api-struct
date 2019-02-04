@@ -9,11 +9,13 @@ export declare enum ReduxAPIState {
     SUCCESS = 2,
     FAILURE = 3
 }
-export declare const isInitial = ReduxAPIState.INITIAL;
-export declare const isFetching = ReduxAPIState.FETCHING;
-export declare const isLoading = ReduxAPIState.FETCHING;
-export declare const isSuccess = ReduxAPIState.SUCCESS;
-export declare const isFailure = ReduxAPIState.FAILURE;
+export declare namespace ReduxAPIState {
+    const isInitial: (state: ReduxAPIState) => boolean;
+    const isFetching: (state: ReduxAPIState) => boolean;
+    const isLoading: (state: ReduxAPIState) => boolean;
+    const isSuccess: (state: ReduxAPIState) => boolean;
+    const isFailure: (state: ReduxAPIState) => boolean;
+}
 export interface ReduxAPIStruct<T> {
     status: ReduxAPIState;
     data: T;

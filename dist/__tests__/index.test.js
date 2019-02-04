@@ -26,20 +26,21 @@ describe("errorDefault testing", () => {
         });
     });
 });
-describe("alias", () => {
-    test("alias initial", () => {
-        expect(__1.isInitial).toEqual(__1.ReduxAPIState.INITIAL);
+describe("alias function", () => {
+    test("function isInitial", () => {
+        expect(__1.ReduxAPIState.isInitial(__1.ReduxAPIState.INITIAL)).toBeTruthy();
     });
-    test("alias fetching", () => {
-        expect(__1.isFetching).toEqual(__1.ReduxAPIState.FETCHING);
+    test("function isFetching", () => {
+        expect(__1.ReduxAPIState.isFetching(__1.ReduxAPIState.FETCHING)).toBeTruthy();
     });
-    test("alias loading", () => {
-        expect(__1.isLoading).toEqual(__1.ReduxAPIState.INITIAL || __1.ReduxAPIState.FETCHING);
+    test("function isLoading", () => {
+        expect(__1.ReduxAPIState.isLoading(__1.ReduxAPIState.INITIAL)).toBeTruthy();
+        expect(__1.ReduxAPIState.isLoading(__1.ReduxAPIState.FETCHING)).toBeTruthy();
     });
-    test("alias success", () => {
-        expect(__1.isSuccess).toEqual(__1.ReduxAPIState.SUCCESS);
+    test("function isSuccess", () => {
+        expect(__1.ReduxAPIState.isSuccess(__1.ReduxAPIState.SUCCESS)).toBeTruthy();
     });
-    test("alias failure", () => {
-        expect(__1.isFailure).toEqual(__1.ReduxAPIState.FAILURE);
+    test("function isFailure", () => {
+        expect(__1.ReduxAPIState.isFailure(__1.ReduxAPIState.FAILURE)).toBeTruthy();
     });
 });
