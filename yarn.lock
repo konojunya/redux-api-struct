@@ -143,10 +143,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/node@10.12.28":
-  version "10.12.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.28.tgz#e6c0c7afded4a96686afc434dcad12dfdc7eda10"
-  integrity sha512-cxuJOAFV/eOuAFIIJxrRkmefrA6uZzFJPNjnCYcTWlM9d/WuzVtEqoG9U7UuQEiPx1Hze8VdXHrDLCyvaP1sHg==
+"@types/node@10.12.29":
+  version "10.12.29"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.29.tgz#c2c8d2d27bb55649fbafe8ea1731658421f38acf"
+  integrity sha512-J/tnbnj8HcsBgCe2apZbdUpQ7hs4d7oZNTYA5bekWdP0sr2NGsOpI/HRdDroEi209tEvTcTtxhD0FfED3DhEcw==
 
 abab@^2.0.0:
   version "2.0.0"
